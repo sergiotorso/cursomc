@@ -1,30 +1,30 @@
 package com.r2d2.cursomc.domain;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-//Adicionar o Serializable (padrão: 1L) depois da classe criada ex: implements .....
+@Entity
 public class Categoria implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	//Início - Atributos básicos
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String  nome;
-	//Fim
 	
-	//Início - Construtor
 	public Categoria() {
 	}
-	//Fim
-	
-	//Início - Construtor
+
 	public Categoria(Integer id, String nome) {
 		super();
 		this.id = id;
 		this.nome = nome;
 	}
-	//Fim
 
-	//Início - Getters e setters  - Como acessar os atríbutos que são privados
 	public Integer getId() {
 		return id;
 	}
@@ -40,10 +40,7 @@ public class Categoria implements Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-    //Fim
-	
-	
-	// Início - HashCode e equals (implementação padrão: somente id) 
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -68,17 +65,5 @@ public class Categoria implements Serializable{
 			return false;
 		return true;
 	}
-	// Fim
-
-	
-
-	
-
-	
-	
-	
-	
-	
-	
 	
 }
